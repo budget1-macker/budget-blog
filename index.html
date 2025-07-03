@@ -1,50 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Budget Living for College Students</title>
   <style>
+    :root {
+      --primary: #4caf50;
+      --text-dark: #333;
+      --bg-light: #f5f5f5;
+      --bg-dark: #1e1e1e;
+      --text-light: #ffffff;
+    }
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f5f5f5;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      transition: background 0.3s, color 0.3s;
     }
     header {
-      background: #4caf50;
+      background: var(--primary);
       color: white;
-      padding: 20px 0;
+      padding: 20px;
       text-align: center;
+      position: relative;
+    }
+    .dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
     .container {
-      width: 90%;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
       padding: 20px;
-      background: white;
     }
     article {
+      background: white;
       margin-bottom: 30px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
     }
-    h2 {
-      color: #333;
+    article:hover {
+      transform: translateY(-5px);
+    }
+    article h2 {
+      margin-top: 0;
     }
     a {
-      color: #4caf50;
+      color: var(--primary);
       text-decoration: none;
+      font-weight: bold;
     }
     a:hover {
       text-decoration: underline;
     }
+    .dark-mode article {
+      background: #2c2c2c;
+    }
+    .toggle-btn {
+      cursor: pointer;
+      background: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
     footer {
       text-align: center;
-      padding: 20px;
       background: #333;
-      color: white;
+      color: #fff;
+      padding: 20px;
       margin-top: 40px;
     }
   </style>
@@ -53,6 +86,9 @@
   <header>
     <h1>Budget Living for College Students</h1>
     <p>Tips, hacks, and cheap finds to save more every semester</p>
+    <nav>
+      <button class="toggle-btn" onclick="toggleDarkMode()">🌓 Dark Mode</button>
+    </nav>
   </header>
 
   <div class="container">
@@ -78,5 +114,11 @@
   <footer>
     <p>© 2025 BudgetLiving. Affiliate links may earn a small commission. Thanks for supporting free content!</p>
   </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
 </body>
 </html>
